@@ -9,8 +9,8 @@ import numpy as np
 from math import ceil
 from anlffr.utils import logger, verbose
 from mne import pick_channels
-from mne.filter import band_pass_filter
-
+from mne.filter import create_filter as band_pass_filter
+# change band_pass_filter to create_filter for compatibility with mne 0.17. SF
 
 @verbose
 def find_blinks(raw, event_id=998, thresh=100e-6, l_freq=0.5, h_freq=10,
